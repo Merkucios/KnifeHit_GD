@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="godot4-mobile-game-course"
+config/name="KnifeHit_GD"
 run/main_scene="res://scenes/game/game.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://assets/target5.png"
