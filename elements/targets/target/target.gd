@@ -49,7 +49,7 @@ func add_default_items(knives : int , apples : int):
 			return
 		occupied_rotations.append(pivot_rotation)
 		# Создание экземпляра сцены ножа и его позиционирование
-		var knife = knife_scene.instance()
+		var knife = knife_scene.instantiate()
 		knife.position = KNIFE_POSITION
 		# Прикрепление ножа к цели с сгенерированным поворотом
 		add_object_with_pivot(knife, pivot_rotation)
@@ -61,7 +61,7 @@ func add_default_items(knives : int , apples : int):
 			return
 		occupied_rotations.append(pivot_rotation)
 		# Создание экземпляра сцены яблока и его позиционирование
-		var apple = apple_scene.instance()
+		var apple = apple_scene.instantiate()
 		apple.position = APPLE_POSITION
 		# Прикрепление яблока к цели с сгенерированным поворотом
 		add_object_with_pivot(apple, pivot_rotation)

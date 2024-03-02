@@ -1,22 +1,52 @@
 extends CharacterBody2D
 
-# Переменная, указывающая, летит ли нож в данный момент
-var is_flying = false 
+enum State {
+	IDLE, # Начальное состояние
+	FLY_TO_TARGET, # Полет к цели
+	FLY_AWAY # Улет от цели
+}
+
+# Изначальное состояние
+var state = State.IDLE
 
 # Скорость полета ножа 
 var speed = 4500.0  
 
+# Вектор отбрасывания ножа 
+var fly_away_direction = Vector2.DOWN
+# Скорость полета отброшенного ножа 
+var fly_away_speed = 1000.0
+# Скорость вращения отброшенного ножа 
+var fly_away_rotation_speed = 1500.0
+# Отклонение отброшенного ножа
+var fly_away_deviation = PI / 8.0
+
 func _physics_process(delta : float):
-	if is_flying:
-		# Перемещаем нож вверх с заданной скоростью
-		var collision = move_and_collide(speed * delta * Vector2.UP)  
-		if collision:
+	match state:
+		State.FLY_TO_TARGET:
+			# Перемещаем нож вверх с заданной скоростью
+			var collision = move_and_collide(speed * delta * Vector2.UP)  
+			if collision:
 			# Если произошло столкновение, обрабатываем его
-			handle_collision(collision)  
+				handle_collision(collision)  
+		State.FLY_AWAY:
+			global_position += fly_away_direction * fly_away_speed * delta
+			rotation += fly_away_rotation_speed * delta
+			return
+
+# Изменяем состояние ножа
+func change_state(new_state : State):
+	state = new_state
 
 # Начинаем полет ножа
 func throw():
-	is_flying = true  
+	change_state(State.FLY_TO_TARGET) 
+	
+# Отбрасывание ножа при попадании в другой нож
+func throw_away(direction : Vector2):
+	var direction_deviation = Globals.rng.randf_range(-fly_away_deviation, fly_away_deviation)
+	fly_away_direction = direction.rotated(direction_deviation)
+	change_state(State.FLY_AWAY) 
 
 func handle_collision(collision : KinematicCollision2D):
 	var collider = collision.get_collider()
@@ -24,7 +54,9 @@ func handle_collision(collision : KinematicCollision2D):
 		# Если столкнулись с целью, добавляем нож к цели
 		add_knife_to_target(collider)  
 		 # Прекращаем полет ножа
-		is_flying = false 
+		change_state(State.IDLE)
+	else:
+		throw_away(collision.get_normal())
 
 func add_knife_to_target(target : Target):
 	# Удаляем нож из родительского узла
