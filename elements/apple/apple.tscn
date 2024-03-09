@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dox7p8tsm6q5k"]
+[gd_scene load_steps=6 format=3 uid="uid://dox7p8tsm6q5k"]
 
 [ext_resource type="Script" path="res://elements/apple/apple.gd" id="1_1mclr"]
 [ext_resource type="Texture2D" uid="uid://yr3d2gdfsoy4" path="res://assets/apple1.png" id="1_ipher"]
+[ext_resource type="Texture2D" uid="uid://c58bpd5jbr21l" path="res://assets/apple2.png" id="3_250hm"]
+[ext_resource type="Texture2D" uid="uid://cvqn2oc2i16g5" path="res://assets/apple3.png" id="4_o15mb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqv4s"]
 radius = 35.0
@@ -23,5 +25,35 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.1365e-06, 13)
 shape = SubResource("CircleShape2D_oqv4s")
+
+[node name="AppleParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.5
+one_shot = true
+texture = ExtResource("3_250hm")
+direction = Vector2(0, 1)
+gravity = Vector2(0, 500)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+angle_min = 180.0
+angle_max = 180.0
+
+[node name="AppleParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.5
+one_shot = true
+texture = ExtResource("4_o15mb")
+direction = Vector2(0, 1)
+gravity = Vector2(0, 500)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+angle_min = 180.0
+angle_max = 180.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
