@@ -12,6 +12,8 @@ const APPLE_POSITION = Vector2(0, 176)
 # Маржа для размещения объектов вокруг цели
 const OBJECT_MARGIN = PI / 6
 
+const EXPLOSION_TIME = 1.0
+
 # Сцена для ножа и яблока
 var knife_scene : PackedScene = load("res://elements/knife/knife.tscn")
 var apple_scene : PackedScene = load("res://elements/apple/apple.tscn")
@@ -21,14 +23,38 @@ var speed = PI
 
 # Ссылка на контейнер объектов в цели
 @onready var items_container = $ItemsContainer  
+@onready var sprite = $Sprite2D
+@onready var knife_particles = $KnifeParticles2D
+@onready var particles_target_parts = [
+	$TargetParticles2D,
+	$TargetParticles2D2,
+	$TargetParticles2D3
+]
 
 func _ready():
 	# Добавление объектов по умолчанию при инициализации сцены
 	add_default_items(1, 4)
+	await get_tree().create_timer(1).timeout 
+	explode()
 
 func _physics_process(delta : float):
 	# Поворот цели с заданной скоростью
 	rotation += speed * delta  
+
+func explode():
+	sprite.hide()
+	items_container.hide()
+	
+	var tween = create_tween()
+	
+	for target_particles_part in particles_target_parts:
+		tween.parallel().tween_property(target_particles_part, "modulate", Color("ffffff00"), EXPLOSION_TIME)
+		target_particles_part.emitting = true
+		
+	knife_particles.rotation = -rotation
+	knife_particles.emitting = true
+	tween.parallel().tween_property(knife_particles, "modulate", Color("ffffff00"), EXPLOSION_TIME)
+	tween.play()
 
 func add_object_with_pivot(object : Node2D, object_rotation : float):
 	# Создание узла-поворота для прикрепления объекта
