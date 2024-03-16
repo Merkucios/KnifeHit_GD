@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom="res://styles/main.theme"
+
 [input]
 
 fire={
