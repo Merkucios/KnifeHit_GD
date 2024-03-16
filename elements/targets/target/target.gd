@@ -34,8 +34,6 @@ var speed = PI
 func _ready():
 	# Добавление объектов по умолчанию при инициализации сцены
 	add_default_items(1, 4)
-	await get_tree().create_timer(1).timeout 
-	explode()
 
 func _physics_process(delta : float):
 	# Поворот цели с заданной скоростью
