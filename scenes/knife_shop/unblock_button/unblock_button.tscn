@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://davfubfqd4xb"]
+
+[ext_resource type="Texture2D" uid="uid://c076ottpxnfh4" path="res://assets/button2.png" id="1_ib66g"]
+[ext_resource type="Texture2D" uid="uid://v7i8pj2qj2no" path="res://assets/knife_ico_1.png" id="2_t8lxy"]
+[ext_resource type="Texture2D" uid="uid://dfoxeyqgynyxa" path="res://assets/apple_ico.png" id="3_8v27v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0wfw"]
+texture = ExtResource("1_ib66g")
+texture_margin_left = 28.0
+texture_margin_top = 23.7079
+texture_margin_right = 26.248
+texture_margin_bottom = 26.248
+
+[node name="UnblockButton" type="PanelContainer"]
+offset_right = 435.248
+offset_bottom = 179.956
+scale = Vector2(0.5, 0.489)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_p0wfw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("2_t8lxy")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -10
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "UNBLOCK"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "RANDOM"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+texture = ExtResource("3_8v27v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "250"
