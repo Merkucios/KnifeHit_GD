@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdtlyrf1woh7o"]
+[gd_scene load_steps=5 format=3 uid="uid://cdtlyrf1woh7o"]
 
 [ext_resource type="Script" path="res://scenes/start_scene/start_screen.gd" id="1_an25l"]
-[ext_resource type="PackedScene" uid="uid://cac81avbjbj4e" path="res://elements/ui/hud/hud.tscn" id="1_svr6x"]
 [ext_resource type="Texture2D" uid="uid://dtkrvkux0e1wo" path="res://assets/knife3.png" id="2_kpbde"]
 [ext_resource type="StyleBox" uid="uid://ciyq7s2w23qt0" path="res://styles/button.stylebox" id="3_7kkhh"]
 [ext_resource type="Texture2D" uid="uid://dl8yjyw3eu6tm" path="res://assets/gift-ico.png" id="4_bkgmg"]
@@ -14,8 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_an25l")
-
-[node name="HUD" parent="." instance=ExtResource("1_svr6x")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
