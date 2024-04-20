@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdtlyrf1woh7o"]
+[gd_scene load_steps=6 format=3 uid="uid://cdtlyrf1woh7o"]
 
+[ext_resource type="Script" path="res://scenes/start_scene/start_screen.gd" id="1_an25l"]
 [ext_resource type="PackedScene" uid="uid://cac81avbjbj4e" path="res://elements/ui/hud/hud.tscn" id="1_svr6x"]
 [ext_resource type="Texture2D" uid="uid://dtkrvkux0e1wo" path="res://assets/knife3.png" id="2_kpbde"]
 [ext_resource type="StyleBox" uid="uid://ciyq7s2w23qt0" path="res://styles/button.stylebox" id="3_7kkhh"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_an25l")
 
 [node name="HUD" parent="." instance=ExtResource("1_svr6x")]
 
@@ -69,3 +71,6 @@ size_flags_vertical = 3
 layout_mode = 2
 texture_normal = ExtResource("4_bkgmg")
 stretch_mode = 5
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer3/TextureButton" to="." method="_on_texture_button_pressed"]

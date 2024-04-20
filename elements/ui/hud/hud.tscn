@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cac81avbjbj4e"]
+[gd_scene load_steps=7 format=3 uid="uid://cac81avbjbj4e"]
 
+[ext_resource type="Script" path="res://elements/ui/hud/hud.gd" id="1_s3mr1"]
 [ext_resource type="Texture2D" uid="uid://cxc0eg6ywmqi5" path="res://assets/background.png" id="1_s88nk"]
 [ext_resource type="Texture2D" uid="uid://c8avdj5qs1klg" path="res://assets/circle_1.png" id="2_lpmab"]
 [ext_resource type="Texture2D" uid="uid://fj11q3al6t66" path="res://assets/boss_ico.png" id="3_75pfg"]
@@ -8,6 +9,7 @@
 
 [node name="HUD" type="CanvasLayer"]
 layer = 5
+script = ExtResource("1_s3mr1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -5
@@ -39,7 +41,7 @@ mouse_filter = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HomeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "< HOME	 "
 flat = true
@@ -148,3 +150,5 @@ texture = ExtResource("5_8d44t")
 [node name="TextureRect9" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("5_8d44t")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
