@@ -2,6 +2,7 @@ extends Node2D
 
 # Предварительная загрузка сцены ножа
 var knife_scene = preload("res://elements/knife/knife.tscn")  
+var is_enabled = true
 # Ссылка на узел ножа
 @onready var knife = $Knife 
 # Ссылка на узел таймера
@@ -14,7 +15,7 @@ func create_new_knife():
 	add_child(knife)  
 
 func _input(event : InputEvent):
-	if event is InputEventScreenTouch and event.is_pressed() and timer.time_left <= 0:
+	if is_enabled and event is InputEventScreenTouch and event.is_pressed() and timer.time_left <= 0:
 		# Если произошло касание экрана и таймер истек, бросаем нож
 		knife.throw()  
 		# Запускаем таймер
@@ -23,3 +24,5 @@ func _input(event : InputEvent):
 func _on_timer_timeout():
 	# При истечении времени таймера создаем новый нож
 	create_new_knife()  
+
+

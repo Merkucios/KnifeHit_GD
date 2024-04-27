@@ -7,5 +7,6 @@ enum LOCATIONS
 	SHOP 
 }
 
+signal game_over
 signal location_changed(location : LOCATIONS)
 

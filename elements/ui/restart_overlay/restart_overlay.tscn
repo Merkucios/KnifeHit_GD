@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://xuy4ok0xjlou"]
+[gd_scene load_steps=8 format=3 uid="uid://xuy4ok0xjlou"]
 
+[ext_resource type="Script" path="res://elements/ui/restart_overlay/restart_overlay.gd" id="1_2lpaf"]
 [ext_resource type="Texture2D" uid="uid://croxd6vnu7m5d" path="res://assets/banner.png" id="1_gjbr8"]
 [ext_resource type="Texture2D" uid="uid://cxc0eg6ywmqi5" path="res://assets/background.png" id="1_hbut4"]
 
@@ -154,6 +155,7 @@ _data = {
 
 [node name="RestartOverlay" type="CanvasLayer"]
 layer = 4
+script = ExtResource("1_2lpaf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -222,3 +224,6 @@ flat = true
 libraries = {
 "": SubResource("AnimationLibrary_dt647")
 }
+autoplay = "show_overlay"
+
+[connection signal="pressed" from="MarginContainer/Control/Button" to="." method="_on_button_pressed"]
