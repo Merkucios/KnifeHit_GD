@@ -15,7 +15,8 @@ var rng = RandomNumberGenerator.new()
 
 var current_stage = 1
 var points = 0
-var knives = 6
+var knives = 0
+var apples = 0
 
 func _ready():
 	rng.randomize()
@@ -34,6 +35,11 @@ func get_common_stage() -> Stage:
 	stage.apples = rng.randi_range(0, MAX_STAGE_APPLES)
 	stage.knives = rng.randi_range(0, MAX_STAGE_KNIVES)
 	return stage
+	
+	
+func add_apples(amount : int):
+	apples += amount
+	Events.apples_changed.emit(apples)
 	
 	
 func remove_knife():

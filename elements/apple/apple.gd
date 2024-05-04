@@ -21,6 +21,7 @@ func _on_area_2d_body_entered(body):
 	if not is_hited:
 		# Устанавливаем is_hited в значение "правда" (True)
 		is_hited = true
+		Globals.add_apples(1)
 		sprite.hide()
 		var tween = create_tween()
 		
