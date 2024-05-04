@@ -9,6 +9,7 @@ func _ready():
 
 func end_game():
 	knife_shooter.is_enabled = false
+	Globals.reset_points()
 	show_restart_overlay()
 
 func show_restart_overlay():
