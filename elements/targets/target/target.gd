@@ -31,13 +31,13 @@ var speed = PI
 	$TargetParticles2D3
 ]
 
-func _ready():
-	# Добавление объектов по умолчанию при инициализации сцены
-	add_default_items(1, 4)
-
 func _physics_process(delta : float):
 	# Поворот цели с заданной скоростью
 	rotation += speed * delta  
+
+func take_damage():
+	if Globals.knives == 0:
+		explode()
 
 func explode():
 	sprite.hide()
@@ -53,6 +53,8 @@ func explode():
 	knife_particles.emitting = true
 	tween.parallel().tween_property(knife_particles, "modulate", Color("ffffff00"), EXPLOSION_TIME)
 	tween.play()
+	await tween.finished
+	Globals.change_stage(Globals.current_stage + 1)
 
 func add_object_with_pivot(object : Node2D, object_rotation : float):
 	# Создание узла-поворота для прикрепления объекта

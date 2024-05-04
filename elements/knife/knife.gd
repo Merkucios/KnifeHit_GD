@@ -55,6 +55,7 @@ func handle_collision(collision : KinematicCollision2D):
 		add_knife_to_target(collider)  
 		 # Прекращаем полет ножа
 		change_state(State.IDLE)
+		collider.take_damage()
 		Globals.add_point()
 	else:
 		throw_away(collision.get_normal())
