@@ -15,9 +15,10 @@ func create_new_knife():
 	add_child(knife)  
 
 func _input(event : InputEvent):
-	if is_enabled and event is InputEventScreenTouch and event.is_pressed() and timer.time_left <= 0:
+	if Globals.knives > 0 and is_enabled and event is InputEventScreenTouch and event.is_pressed() and timer.time_left <= 0:
 		# Если произошло касание экрана и таймер истек, бросаем нож
 		knife.throw()  
+		Globals.remove_knife()
 		# Запускаем таймер
 		timer.start()  
 
