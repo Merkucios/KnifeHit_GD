@@ -12,6 +12,10 @@ func _ready():
 	Events.stage_changed.connect(place_target)
 	Globals.change_stage(1)
 
+func change_stage(stage: Stage):
+	Globals.save_game()
+	place_target(stage)
+
 func place_target(stage : Stage):
 	if target:
 		target.queue_free()
@@ -22,6 +26,7 @@ func place_target(stage : Stage):
 
 func end_game():
 	knife_shooter.is_enabled = false
+	Globals.save_game()
 	Globals.reset_points()
 	show_restart_overlay()
 
