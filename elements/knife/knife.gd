@@ -12,6 +12,8 @@ var state = State.IDLE
 # Скорость полета ножа 
 var speed = 4500.0  
 
+@onready var sprite = $Sprite2D
+
 # Вектор отбрасывания ножа 
 var fly_away_direction = Vector2.DOWN
 # Скорость полета отброшенного ножа 
@@ -20,6 +22,9 @@ var fly_away_speed = 1000.0
 var fly_away_rotation_speed = 1500.0
 # Отклонение отброшенного ножа
 var fly_away_deviation = PI / 8.0
+
+func _ready():
+	sprite.texture = Globals.KNIFE_TEXTURES[Globals.active_knife_index]
 
 func _physics_process(delta : float):
 	match state:

@@ -31,6 +31,9 @@ var speed = PI
 	$TargetParticles2D3
 ]
 
+func _ready():
+	knife_particles.texture = Globals.KNIFE_TEXTURES[Globals.active_knife_index]
+
 func _physics_process(delta : float):
 	# Поворот цели с заданной скоростью
 	rotation += speed * delta  
