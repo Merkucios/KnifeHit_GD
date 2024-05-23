@@ -1,23 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct3q5sni41o1k"]
+[gd_scene load_steps=7 format=3 uid="uid://bi1l2vky8y5ox"]
 
-[ext_resource type="PackedScene" uid="uid://bi54m1nuitbkx" path="res://elements/targets/target/target.tscn" id="1_pipjm"]
-[ext_resource type="Script" path="res://elements/targets/target_accelerate/target_accelerate.gd" id="2_8uw1f"]
-[ext_resource type="Texture2D" uid="uid://be686yqc5ixj1" path="res://assets/target2.png" id="3_a53wq"]
-[ext_resource type="Texture2D" uid="uid://cyn7aw1mexocv" path="res://assets/target2_1.png" id="4_bafan"]
-[ext_resource type="Texture2D" uid="uid://b84dqln6gi38d" path="res://assets/target2_2.png" id="5_yeufi"]
-[ext_resource type="Texture2D" uid="uid://lg4fmgcuvcxw" path="res://assets/target2_3.png" id="6_1jcvs"]
+[ext_resource type="PackedScene" uid="uid://35e3j0jp4hvx" path="res://elements/targets/target/target.tscn" id="1_elhtd"]
+[ext_resource type="Script" path="res://elements/targets/target_accelerate/target_accelerate.gd" id="2_6xcub"]
+[ext_resource type="Texture2D" uid="uid://be686yqc5ixj1" path="res://assets/target2.png" id="3_x40l3"]
+[ext_resource type="Texture2D" uid="uid://cyn7aw1mexocv" path="res://assets/target2_1.png" id="4_aj05n"]
+[ext_resource type="Texture2D" uid="uid://b84dqln6gi38d" path="res://assets/target2_2.png" id="5_h22vr"]
+[ext_resource type="Texture2D" uid="uid://lg4fmgcuvcxw" path="res://assets/target2_3.png" id="6_cxy42"]
 
-[node name="TargetAccelerate" instance=ExtResource("1_pipjm")]
-script = ExtResource("2_8uw1f")
+[node name="TargetAccelerate" instance=ExtResource("1_elhtd")]
+script = ExtResource("2_6xcub")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_a53wq")
+texture = ExtResource("3_x40l3")
 
 [node name="TargetParticles2D" parent="." index="3"]
-texture = ExtResource("4_bafan")
+texture = ExtResource("4_aj05n")
 
 [node name="TargetParticles2D2" parent="." index="4"]
-texture = ExtResource("5_yeufi")
+texture = ExtResource("5_h22vr")
 
 [node name="TargetParticles2D3" parent="." index="5"]
-texture = ExtResource("6_1jcvs")
+texture = ExtResource("6_cxy42")

@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2bqw3itrchc3"]
+[gd_scene load_steps=4 format=3 uid="uid://ccqu43w8fy8db"]
 
-[ext_resource type="Script" path="res://scenes/knife_shop/shop_item/shop_item.gd" id="1_2x4lh"]
-[ext_resource type="Texture2D" uid="uid://bu3qa4uimyddu" path="res://assets/locked.png" id="1_rva4r"]
+[ext_resource type="Script" path="res://scenes/knife_shop/shop_item/shop_item.gd" id="1_00hrl"]
+[ext_resource type="Texture2D" uid="uid://bu3qa4uimyddu" path="res://assets/locked.png" id="1_j3kfx"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k085p"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e3jpq"]
 
 [node name="ShopItem" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_k085p")
-script = ExtResource("1_2x4lh")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e3jpq")
+script = ExtResource("1_00hrl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
@@ -27,7 +27,7 @@ theme_override_constants/margin_bottom = 15
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
-texture = ExtResource("1_rva4r")
+texture = ExtResource("1_j3kfx")
 expand_mode = 1
 stretch_mode = 5
 
