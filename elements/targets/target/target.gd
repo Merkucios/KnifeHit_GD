@@ -36,6 +36,9 @@ func _ready():
 
 func _physics_process(delta : float):
 	# Поворот цели с заданной скоростью
+	move(delta)
+
+func move(delta : float):
 	rotation += speed * delta  
 
 func take_damage():
